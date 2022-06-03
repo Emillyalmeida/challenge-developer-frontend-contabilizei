@@ -12,7 +12,8 @@ export default createGlobalStyle`
 }
 :root{
     --color-main:#d00000;
-    --color-secundary:#ffba08
+    --color-secundary:#f7b538;
+    --color-hover:#fff3b0;
 }
 
 html{
