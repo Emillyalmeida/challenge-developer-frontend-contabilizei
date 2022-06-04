@@ -9,7 +9,7 @@ const Routers = () => {
         <Home />
       </Route>
       <Route path="/checkout"></Route>
-      <Route path="/hq"></Route>
+      <Route path="/hq/:id"></Route>
     </Switch>
   );
 };
