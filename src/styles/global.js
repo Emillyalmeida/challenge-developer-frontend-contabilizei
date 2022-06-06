@@ -12,6 +12,9 @@ export default createGlobalStyle`
 }
 :root{
     --color-main:#d00000;
+    --color-red-600:#9d0208;
+    --color-red-800:#6a040f;
+    --color-red-900:#370617;
     --color-secundary:#f7b538;
     --color-hover:#fff3b0;
 }
