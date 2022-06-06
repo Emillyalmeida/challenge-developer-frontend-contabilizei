@@ -6,6 +6,8 @@ import Header from "../../components/header";
 import api from "../../services/api";
 import { MainDetail } from "./style";
 import { FaShoppingCart } from "react-icons/fa";
+import { useContext } from "react";
+import { CartContext } from "../../providers/cart";
 
 const HqDetails = () => {
   const Params = useParams();
@@ -28,6 +30,7 @@ const HqDetails = () => {
         console.log(err);
       });
   };
+  const { addToCart, Cart } = useContext(CartContext);
 
   return (
     <Container>
@@ -55,8 +58,11 @@ const HqDetails = () => {
                   })}
                 </ul>
                 <p>{hq.description}</p>
-                <span>Price: US$ {hq.prices[0].price}</span>
-                <button>
+                <span>
+                  Price: US${" "}
+                  {hq.prices[0].price === 0 ? 4.99 : hq.prices[0].price}
+                </span>
+                <button onClick={() => addToCart(hq)}>
                   <FaShoppingCart /> add to cart
                 </button>
               </div>
