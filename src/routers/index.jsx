@@ -1,6 +1,7 @@
 import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
 import Home from "../pages/home";
+import HqDetails from "../pages/hqDetails";
 
 const Routers = () => {
   return (
@@ -9,7 +10,9 @@ const Routers = () => {
         <Home />
       </Route>
       <Route path="/checkout"></Route>
-      <Route path="/hq/:id"></Route>
+      <Route path="/hq/:id">
+        <HqDetails />
+      </Route>
     </Switch>
   );
 };
