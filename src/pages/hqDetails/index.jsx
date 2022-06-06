@@ -11,6 +11,10 @@ const HqDetails = () => {
   const Params = useParams();
   const [hq, setHq] = useState({});
 
+  useEffect(() => {
+    getHqById(Params.id);
+  }, []);
+
   const getHqById = (id) => {
     api
       .get(
@@ -25,16 +29,44 @@ const HqDetails = () => {
       });
   };
 
-  useEffect(() => {
-    getHqById(Params.id);
-  }, []);
-
   return (
     <Container>
       <Header />
       <MainDetail>
         <section>
-          <img
+          {hq.images ? (
+            <>
+              <img
+                src={`${hq.images[0].path}.${hq.images[0].extension}`}
+                alt={hq.title}
+              />
+
+              <div>
+                <h2>{hq.title}</h2>
+                <ul>
+                  {" "}
+                  {hq.creators.items.map((creator) => {
+                    return (
+                      <li>
+                        <h4>{creator.role} :</h4>
+                        <span>{creator.name} </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <p>{hq.description}</p>
+                <span>Price: US$ {hq.prices[0].price}</span>
+                <button>
+                  <FaShoppingCart /> add to cart
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <h2>help</h2>
+            </>
+          )}
+          {/* <img
             src={`${hq.images[0].path}.${hq.images[0].extension}`}
             alt={hq.title}
           />
@@ -56,7 +88,7 @@ const HqDetails = () => {
             <button>
               <FaShoppingCart /> add to cart
             </button>
-          </div>
+          </div> */}
         </section>
       </MainDetail>
     </Container>

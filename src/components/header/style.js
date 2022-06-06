@@ -30,6 +30,7 @@ export const HeaderContainer = styled.header`
     div {
       display: flex;
       align-items: center;
+      color: var(--color-secundary);
       &:hover {
         color: var(--color-hover);
         cursor: pointer;

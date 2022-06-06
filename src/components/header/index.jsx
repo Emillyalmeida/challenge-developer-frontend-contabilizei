@@ -1,16 +1,19 @@
 import { HeaderContainer } from "./style";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <HeaderContainer>
       <h1> House of Marvel</h1>
       <nav>
-        <div>
-          <span>Home</span>
-          <FaHome />
-        </div>
+        <Link to="/">
+          <div>
+            <span>Home</span>
+            <FaHome />
+          </div>
+        </Link>
         <div>
           <span>Cart</span>
           <FaShoppingCart />
