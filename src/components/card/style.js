@@ -4,12 +4,19 @@ export const CardLi = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   width: 280px;
-  height: 330px;
+  height: 350px;
   margin: 10px;
+  background-color: var(--color-hover);
+  color: var(--color-main);
 
   img {
-    width: 250px;
-    height: 280px;
+    width: 100%;
+    height: 295px;
+  }
+
+  h3 {
+    text-align: center;
   }
 `;

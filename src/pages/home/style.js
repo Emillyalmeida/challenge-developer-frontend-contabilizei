@@ -6,8 +6,20 @@ export const Main = styled.main`
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-image: url(${imgBackground});
+  overflow-y: auto;
+
+  div {
+    background-color: var(--color-secundary);
+    color: var(--color-main);
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+    @media (min-width: 768px) {
+      width: 80%;
+    }
+  }
 
   section {
     background-color: var(--color-secundary);
@@ -21,8 +33,10 @@ export const Main = styled.main`
   }
 
   ul {
-    background-color: var(--color-secundary);
     width: 80%;
     margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 `;
