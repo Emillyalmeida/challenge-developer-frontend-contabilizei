@@ -11,8 +11,9 @@ const Card = ({ hq }) => {
   const { addToCart } = useContext(CartContext);
 
   return (
-    <CardLi onClick={() => history.push(`/hq/${id}`)}>
+    <CardLi>
       <img
+        onClick={() => history.push(`/hq/${id}`)}
         src={
           images.length > 0
             ? `${images[0].path}.${images[0].extension}`

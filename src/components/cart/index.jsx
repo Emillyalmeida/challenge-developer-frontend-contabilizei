@@ -18,6 +18,7 @@ import {
 import { useContext } from "react";
 import { CartContext } from "../../providers/cart";
 import { FaShoppingCart } from "react-icons/fa";
+import { GrAdd } from "react-icons/gr";
 
 const ModalCart = ({ isOpen, onClose }) => {
   const { removeCart, Cart } = useContext(CartContext);
@@ -66,8 +67,36 @@ const ModalCart = ({ isOpen, onClose }) => {
                       {item.prices[0].price}
                     </span>
                   </VStack>
-                  <VStack>
-                    <Text>Qtd: {item.qtd}</Text>
+                  <VStack spacing="2">
+                    <Flex>
+                      <Button
+                        bgColor="var(--color-red-800)"
+                        color="var(--color-secundary)"
+                        fontSize="1.75rem"
+                        minW="25px"
+                        h="25px"
+                        p="1"
+                        fontFamily="mono"
+                      >
+                        +
+                      </Button>
+                      <Text w="20px" bgColor="white" textAlign="center">
+                        {item.qtd}
+                      </Text>
+                      <Button
+                        display="flex"
+                        bgColor="var(--color-red-800)"
+                        color="var(--color-secundary)"
+                        fontSize="1.75rem"
+                        minW="25px"
+                        h="25px"
+                        p="1"
+                        fontFamily="mono"
+                      >
+                        -
+                      </Button>
+                    </Flex>
+
                     <Button
                       bgColor="var(--color-red-800)"
                       color="var(--color-secundary)"
