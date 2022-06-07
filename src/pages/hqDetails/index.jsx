@@ -30,7 +30,7 @@ const HqDetails = () => {
         console.log(err);
       });
   };
-  const { addToCart, Cart } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   return (
     <Container>

@@ -4,9 +4,9 @@ export const CardLi = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 280px;
-  height: 350px;
+  height: 380px;
   margin: 10px;
   background-color: var(--color-hover);
   color: var(--color-main);
@@ -22,10 +22,22 @@ export const CardLi = styled.li`
 
   img {
     width: 100%;
-    height: 295px;
+    height: 290px;
   }
 
   h3 {
     text-align: center;
+  }
+  button {
+    color: var(--color-secundary);
+    background-color: var(--color-main);
+    cursor: pointer;
+    height: 50px;
+    font-size: 1.5rem;
+    width: 100%;
+
+    &:hover {
+      background-color: var(--color-red-800);
+    }
   }
 `;
