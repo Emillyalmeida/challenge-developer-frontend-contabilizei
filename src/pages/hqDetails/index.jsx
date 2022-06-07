@@ -8,6 +8,7 @@ import { MainDetail } from "./style";
 import { FaShoppingCart } from "react-icons/fa";
 import { useContext } from "react";
 import { CartContext } from "../../providers/cart";
+import noImage from "../../assets/noImage.jpg";
 
 const HqDetails = () => {
   const Params = useParams();
@@ -40,7 +41,11 @@ const HqDetails = () => {
           {hq.images ? (
             <>
               <img
-                src={`${hq.images[0].path}.${hq.images[0].extension}`}
+                src={
+                  hq.images.length > 0
+                    ? `${hq.images[0].path}.${hq.images[0].extension}`
+                    : noImage
+                }
                 alt={hq.title}
               />
 
@@ -50,7 +55,7 @@ const HqDetails = () => {
                   {" "}
                   {hq.creators.items.map((creator) => {
                     return (
-                      <li>
+                      <li key={creator.name}>
                         <h4>{creator.role} :</h4>
                         <span>{creator.name} </span>
                       </li>
@@ -72,29 +77,6 @@ const HqDetails = () => {
               <h2>help</h2>
             </>
           )}
-          {/* <img
-            src={`${hq.images[0].path}.${hq.images[0].extension}`}
-            alt={hq.title}
-          />
-          <div>
-            <h2>{hq.title}</h2>
-            <ul>
-              {" "}
-              {hq.creators.items.map((creator) => {
-                return (
-                  <li>
-                    <h4>{creator.role} :</h4>
-                    <span>{creator.name} </span>
-                  </li>
-                );
-              })}
-            </ul>
-            <p>{hq.description}</p>
-            <span>Price: US$ {hq.prices[0].price}</span>
-            <button>
-              <FaShoppingCart /> add to cart
-            </button>
-          </div> */}
         </section>
       </MainDetail>
     </Container>
