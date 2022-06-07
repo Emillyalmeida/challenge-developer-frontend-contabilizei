@@ -26,8 +26,8 @@ export const Main = styled.main`
     @media (min-width: 768px) {
       width: 80%;
     }
-    h3 {
-      font-size: 2.75rem;
+    h2 {
+      font-size: 3rem;
       text-align: center;
       text-shadow: 4px 4px 5px var(--color-secundary);
     }
@@ -39,18 +39,23 @@ export const Main = styled.main`
     align-items: center;
     background-color: var(--color-main);
     color: var(--color-hover);
-    width: 100%;
-    min-height: 50px;
+    width: 300px;
+    height: auto;
+    padding: 7px;
     margin-top: 20px;
     @media (min-width: 768px) {
       width: 80%;
       flex-direction: row;
       justify-content: space-evenly;
     }
+    h3 {
+      font-size: 2rem;
+    }
 
     select {
       width: 250px;
       height: 35px;
+      margin-top: 8px;
       background-color: var(--color-secundary);
       font-weight: 700;
       color: var(--color-red-800);

@@ -28,10 +28,10 @@ const Home = () => {
       <Header />
       <Main>
         <div>
-          <h3>Buy yours comics here!!</h3>
+          <h2>Buy yours comics here!!</h2>
         </div>
         <section>
-          <h2>Filters</h2>
+          <h3>Filters</h3>
           <select onChange={(e) => setFormat(`format=${e.target.value}&`)}>
             <option value="comic">Comic</option>
             <option value="magazine">Magazine</option>
