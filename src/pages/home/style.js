@@ -29,17 +29,32 @@ export const Main = styled.main`
     h3 {
       font-size: 2.75rem;
       text-align: center;
+      text-shadow: 4px 4px 5px var(--color-secundary);
     }
   }
 
   section {
-    background-color: var(--color-secundary);
-    color: var(--color-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-main);
+    color: var(--color-hover);
     width: 100%;
-    height: 300px;
+    min-height: 50px;
     margin-top: 20px;
     @media (min-width: 768px) {
       width: 80%;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    select {
+      width: 250px;
+      height: 35px;
+      background-color: var(--color-secundary);
+      font-weight: 700;
+      color: var(--color-red-800);
+      border-radius: 6px;
     }
   }
 
