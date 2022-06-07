@@ -25,8 +25,24 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("@MarvelHouse", Cart);
   };
 
+  const addQtd = (hq) => {
+    hq.qtd++;
+    setCart([...Cart]);
+  };
+
+  const subQtd = (hq) => {
+    hq.qtd--;
+    if (hq.qtd >= 1) {
+      setCart([...Cart]);
+    } else {
+      RemoveToCart(hq);
+    }
+  };
+
   return (
-    <CartContext.Provider value={{ Cart, addToCart, RemoveToCart }}>
+    <CartContext.Provider
+      value={{ Cart, addToCart, RemoveToCart, addQtd, subQtd }}
+    >
       {children}
     </CartContext.Provider>
   );

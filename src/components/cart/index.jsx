@@ -18,10 +18,9 @@ import {
 import { useContext } from "react";
 import { CartContext } from "../../providers/cart";
 import { FaShoppingCart } from "react-icons/fa";
-import { GrAdd } from "react-icons/gr";
 
 const ModalCart = ({ isOpen, onClose }) => {
-  const { removeCart, Cart } = useContext(CartContext);
+  const { RemoveToCart, addQtd, subQtd, Cart } = useContext(CartContext);
 
   return (
     <ChakraProvider resetCSS={false}>
@@ -33,6 +32,7 @@ const ModalCart = ({ isOpen, onClose }) => {
           ml="auto"
           mt={["9vh", "9vh", "10vh"]}
           w={["300px", "300px", "400px"]}
+          maxH="80vh"
           boxShadow="base"
         >
           <DrawerCloseButton
@@ -77,6 +77,8 @@ const ModalCart = ({ isOpen, onClose }) => {
                         h="25px"
                         p="1"
                         fontFamily="mono"
+                        _hover={{ bgColor: "var(--color-main)" }}
+                        onClick={() => addQtd(item)}
                       >
                         +
                       </Button>
@@ -84,7 +86,6 @@ const ModalCart = ({ isOpen, onClose }) => {
                         {item.qtd}
                       </Text>
                       <Button
-                        display="flex"
                         bgColor="var(--color-red-800)"
                         color="var(--color-secundary)"
                         fontSize="1.75rem"
@@ -92,6 +93,8 @@ const ModalCart = ({ isOpen, onClose }) => {
                         h="25px"
                         p="1"
                         fontFamily="mono"
+                        _hover={{ bgColor: "var(--color-main)" }}
+                        onClick={() => subQtd(item)}
                       >
                         -
                       </Button>
@@ -102,6 +105,7 @@ const ModalCart = ({ isOpen, onClose }) => {
                       color="var(--color-secundary)"
                       _hover={{ bgColor: "var(--color-main)" }}
                       cursor="poinrer"
+                      onClick={() => RemoveToCart(item)}
                     >
                       {" "}
                       Remove{" "}
@@ -117,9 +121,14 @@ const ModalCart = ({ isOpen, onClose }) => {
           </DrawerBody>
           {Cart.length > 0 ? (
             <Box>
-              <VStack pb="4">
-                <Flex justifyContent="space-between" w="95%" paddingX="4">
-                  <Text>Total do pedido</Text>{" "}
+              <VStack pb="4" borderTop="1px" borderColor="var(--color-main)">
+                <Flex
+                  justifyContent="space-between"
+                  w="95%"
+                  paddingX="4"
+                  pt="2"
+                >
+                  <Text>Total of the demand</Text>{" "}
                   <Text>
                     R${" "}
                     {Cart.reduce(
