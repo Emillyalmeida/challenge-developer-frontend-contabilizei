@@ -4,9 +4,12 @@ import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useDisclosure } from "@chakra-ui/react";
 import ModalCart from "../cart";
+import { useContext } from "react";
+import { CartContext } from "../../providers/cart";
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { Cart } = useContext(CartContext);
   return (
     <>
       <ModalCart isOpen={isOpen} onClose={onClose} />
@@ -15,13 +18,14 @@ const Header = () => {
         <nav>
           <Link to="/">
             <div>
-              <span>Home</span>
               <FaHome />
+              <span>Home</span>
             </div>
           </Link>
           <div onClick={() => onOpen()}>
-            <span>Cart</span>
+            <p>{Cart.length}</p>
             <FaShoppingCart />
+            <span>Cart</span>
           </div>
         </nav>
       </HeaderContainer>

@@ -28,12 +28,29 @@ export const HeaderContainer = styled.header`
     }
 
     div {
+      position: relative;
       display: flex;
       align-items: center;
       color: var(--color-secundary);
       &:hover {
         color: var(--color-hover);
         cursor: pointer;
+      }
+      > p {
+        position: absolute;
+        top: -9px;
+        left: 22px;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-red-800);
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--color-hover);
       }
 
       span {
