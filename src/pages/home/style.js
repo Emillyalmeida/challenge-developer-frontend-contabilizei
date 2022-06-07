@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import imgBackground from "../../assets/Cartoon-Comics-Wallpaper-3D-wallpaper-for-walls-Mural-Kids-Bedroom-Room-Decor-TV-background-wall-covering.jpg";
+import imgBanner from "../../assets/baner.jpg";
 
 export const Main = styled.main`
   display: flex;
@@ -11,13 +12,23 @@ export const Main = styled.main`
   overflow-y: auto;
 
   div {
-    background-color: var(--color-secundary);
-    color: var(--color-main);
+    color: var(--color-hover);
     width: 100%;
-    height: 300px;
+    min-height: 300px;
     margin-top: 20px;
+    background-image: url(${imgBanner});
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
     @media (min-width: 768px) {
       width: 80%;
+    }
+    h3 {
+      font-size: 2.75rem;
+      text-align: center;
     }
   }
 

@@ -1,9 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Container from "../../components/container";
 import Header from "../../components/header";
 import { Main } from "./style";
 import api from "../../services/api";
-import { useState } from "react";
 import Card from "../../components/card";
 
 const Home = () => {
@@ -24,7 +23,7 @@ const Home = () => {
       <Header />
       <Main>
         <div>
-          <h2>Banner</h2>
+          <h3>Buy yours comics here!!</h3>
         </div>
         <section>
           <h2>filtros</h2>
