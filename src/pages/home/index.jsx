@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+
 import Container from "../../components/container";
 import Header from "../../components/header";
-import { Main } from "./style";
-import api from "../../services/api";
 import Card from "../../components/card";
+
+import api from "../../services/api";
+
+import { Main } from "./style";
 import { ChakraProvider, Spinner } from "@chakra-ui/react";
+import { MdError } from "react-icons/md";
 
 const Home = () => {
   const [load, setLoad] = useState(true);
@@ -33,22 +37,28 @@ const Home = () => {
         </div>
         <section>
           <h3>Filters</h3>
-          <select onChange={(e) => setFormat(`format=${e.target.value}&`)}>
-            <option value="comic">Comic</option>
-            <option value="magazine">Magazine</option>
-            <option value="graphic%20novel">Grafic Novel</option>
-            <option value="digital%20comic">Digital Comic </option>
-            <option value="hardcover">Hardcover</option>
-            <option value="trade%20paperback">Paperback</option>
-            <option value="infinite%20comic">Infinite Comic </option>
-          </select>
-          <select onChange={(e) => setdate(e.target.value)}>
-            <option value="dateDescriptor=thisWeek&">This week</option>
-            <option value="dateDescriptor=lastWeek&">Last week</option>
-            <option value="dateDescriptor=nextWeek&">Next week </option>
-            <option value="dateDescriptor=thisMonth&">This month</option>
-            <option value="">None</option>
-          </select>
+          <div>
+            <label> Format</label>
+            <select onChange={(e) => setFormat(`format=${e.target.value}&`)}>
+              <option value="comic">Comic</option>
+              <option value="magazine">Magazine</option>
+              <option value="graphic%20novel">Grafic Novel</option>
+              <option value="digital%20comic">Digital Comic </option>
+              <option value="hardcover">Hardcover</option>
+              <option value="trade%20paperback">Paperback</option>
+              <option value="infinite%20comic">Infinite Comic </option>
+            </select>
+          </div>
+          <div>
+            <label> Date</label>
+            <select onChange={(e) => setdate(e.target.value)}>
+              <option value="dateDescriptor=thisWeek&">This week</option>
+              <option value="dateDescriptor=lastWeek&">Last week</option>
+              <option value="dateDescriptor=nextWeek&">Next week </option>
+              <option value="dateDescriptor=thisMonth&">This month</option>
+              <option value="">None</option>
+            </select>
+          </div>
         </section>
 
         <ul>
@@ -56,11 +66,18 @@ const Home = () => {
             <ChakraProvider resetCSS={false}>
               <Spinner h="300px" w="300px" color="var(--color-main)" />
             </ChakraProvider>
-          ) : (
+          ) : listHq.length > 0 ? (
             <>
               {listHq.map((hq) => (
                 <Card hq={hq} key={hq.id} />
               ))}
+            </>
+          ) : (
+            <>
+              <section>
+                <h3>Not found any comic with these filters</h3>
+                <MdError />
+              </section>
             </>
           )}
         </ul>

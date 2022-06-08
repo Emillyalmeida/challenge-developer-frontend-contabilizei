@@ -41,7 +41,7 @@ export const Main = styled.main`
     color: var(--color-hover);
     width: 300px;
     height: auto;
-    padding: 7px;
+    padding: 10px;
     margin-top: 20px;
     @media (min-width: 768px) {
       width: 80%;
@@ -52,14 +52,20 @@ export const Main = styled.main`
       font-size: 2rem;
     }
 
-    select {
-      width: 250px;
-      height: 35px;
+    > div {
+      width: 240px;
       margin-top: 8px;
-      background-color: var(--color-secundary);
       font-weight: 700;
-      color: var(--color-red-800);
-      border-radius: 6px;
+
+      select {
+        width: 100%;
+        height: 35px;
+        margin-top: 2px;
+        background-color: var(--color-secundary);
+        font-weight: 700;
+        color: var(--color-red-800);
+        border-radius: 6px;
+      }
     }
   }
 
@@ -70,5 +76,14 @@ export const Main = styled.main`
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin-bottom: 40px;
+
+    > section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      > svg {
+        font-size: 10rem;
+      }
+    }
   }
 `;
