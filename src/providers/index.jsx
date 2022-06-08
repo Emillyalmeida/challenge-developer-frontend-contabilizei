@@ -1,7 +1,12 @@
 import { CartProvider } from "./cart";
+import { ListComicsProvider } from "./listComics";
 
 const Providers = ({ children }) => {
-  return <CartProvider>{children}</CartProvider>;
+  return (
+    <ListComicsProvider>
+      <CartProvider>{children}</CartProvider>;
+    </ListComicsProvider>
+  );
 };
 
 export default Providers;
