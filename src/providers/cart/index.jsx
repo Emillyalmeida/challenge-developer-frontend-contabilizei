@@ -9,7 +9,7 @@ export const CartProvider = ({ children }) => {
     const isDuplicate = Cart.some((item) => item.id === hq.id);
 
     if (isDuplicate) {
-      hq.qtd = hq.qtd + 1;
+      hq.qtd++;
       setCart([...Cart]);
     } else {
       hq.qtd = 1;

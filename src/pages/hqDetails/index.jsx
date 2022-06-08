@@ -15,10 +15,12 @@ import { useContext } from "react";
 import { CartContext } from "../../providers/cart";
 
 import noImage from "../../assets/noImage.jpg";
+import { ChakraProvider, Spinner } from "@chakra-ui/react";
 
 const HqDetails = () => {
   const history = useHistory();
   const Params = useParams();
+  const [load, setLoad] = useState(true);
   const [hq, setHq] = useState({});
 
   useEffect(() => {
@@ -33,6 +35,7 @@ const HqDetails = () => {
       .then((res) => {
         console.log(res.data.data.results[0]);
         setHq(res.data.data.results[0]);
+        setLoad(false);
       })
       .catch((err) => {
         console.log(err);
@@ -45,7 +48,7 @@ const HqDetails = () => {
       <Header />
       <MainDetail>
         <section>
-          {hq.images ? (
+          {!load ? (
             <>
               <button onClick={() => history.push("/")}>
                 <FaArrowLeft />
@@ -62,7 +65,6 @@ const HqDetails = () => {
               <div>
                 <h2>{hq.title}</h2>
                 <ul>
-                  {" "}
                   {hq.creators.items.map((creator) => {
                     return (
                       <li key={creator.name}>
@@ -83,9 +85,9 @@ const HqDetails = () => {
               </div>
             </>
           ) : (
-            <>
-              <h2>help</h2>
-            </>
+            <ChakraProvider resetCSS={false}>
+              <Spinner h="300px" w="300px" color="var(--color-main)" />
+            </ChakraProvider>
           )}
         </section>
       </MainDetail>

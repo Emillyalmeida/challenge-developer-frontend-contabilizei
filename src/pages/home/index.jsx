@@ -20,7 +20,7 @@ const Home = () => {
       .then((res) => {
         console.log(res.data.data.results);
         setListHq(res.data.data.results);
-        setLoad(true);
+        setLoad(false);
       })
       .catch((err) => console.log(err));
   }, [format, date]);
