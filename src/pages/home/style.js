@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import imgBackground from "../../assets/Cartoon-Comics-Wallpaper-3D-wallpaper-for-walls-Mural-Kids-Bedroom-Room-Decor-TV-background-wall-covering.jpg";
+import imgBackground from "../../assets/marvelHome.jpg";
 import imgBanner from "../../assets/baner.jpg";
 
 export const Main = styled.main`
@@ -9,6 +9,7 @@ export const Main = styled.main`
   width: 100vw;
   height: 100%;
   background-image: url(${imgBackground});
+  background-position: right;
   overflow-y: auto;
 
   > div {
