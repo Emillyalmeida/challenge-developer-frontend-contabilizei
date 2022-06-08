@@ -3,16 +3,15 @@ import imgDetails from "../../assets/hqs.jpeg";
 
 export const MainDetail = styled.main`
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   overflow-y: auto;
   background-image: url(${imgDetails});
 
   section {
-    margin-top: 12vh;
+    margin-top: 6vh;
     margin-bottom: 50px;
     padding: 10px;
     background-color: var(--color-hover);
@@ -22,10 +21,27 @@ export const MainDetail = styled.main`
     justify-content: space-evenly;
     width: 100%;
     height: auto;
+    position: relative;
     @media (min-width: 768px) {
       flex-direction: row;
       width: 80%;
       padding: 20px;
+    }
+    > button {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      color: var(--color-secundary);
+      background-color: var(--color-main);
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      border: none;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: var(--color-red-800);
+      }
     }
 
     img {

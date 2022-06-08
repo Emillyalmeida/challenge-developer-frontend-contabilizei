@@ -23,7 +23,10 @@ const Header = () => {
             </div>
           </Link>
           <div onClick={() => onOpen()}>
-            <p>{Cart.length}</p>
+            <div>
+              <p>{Cart.length}</p>
+            </div>
+
             <FaShoppingCart />
             <span>Cart</span>
           </div>

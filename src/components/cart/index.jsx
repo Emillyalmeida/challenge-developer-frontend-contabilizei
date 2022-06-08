@@ -31,7 +31,7 @@ const ModalCart = ({ isOpen, onClose }) => {
           bgColor="var(--color-hover)"
           ml="auto"
           mt={["9vh", "9vh", "10vh"]}
-          w={["300px", "300px", "400px"]}
+          w={["320px", "320px", "400px"]}
           maxH="80vh"
           boxShadow="base"
         >

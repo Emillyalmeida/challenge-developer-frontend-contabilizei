@@ -8,8 +8,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 30px;
 
   h1 {
     font-size: 2rem;
@@ -36,14 +35,13 @@ export const HeaderContainer = styled.header`
         color: var(--color-hover);
         cursor: pointer;
       }
-      > p {
+      > div {
         position: absolute;
         top: -9px;
         left: 22px;
         width: 24px;
         height: 24px;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
         background-color: var(--color-red-800);
@@ -57,9 +55,10 @@ export const HeaderContainer = styled.header`
         display: none;
         @media (min-width: 768px) {
           font-size: 1.5rem;
-          padding-right: 10px;
+          padding-left: 10px;
           margin-top: 4px;
           display: flex;
+          font-family: "Bangers", cursive;
         }
       }
 

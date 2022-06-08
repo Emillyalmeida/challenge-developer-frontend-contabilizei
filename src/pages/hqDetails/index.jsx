@@ -1,16 +1,23 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 import Container from "../../components/container";
 import Header from "../../components/header";
 import api from "../../services/api";
+
 import { MainDetail } from "./style";
 import { FaShoppingCart } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
+
 import { useContext } from "react";
 import { CartContext } from "../../providers/cart";
+
 import noImage from "../../assets/noImage.jpg";
 
 const HqDetails = () => {
+  const history = useHistory();
   const Params = useParams();
   const [hq, setHq] = useState({});
 
@@ -40,6 +47,9 @@ const HqDetails = () => {
         <section>
           {hq.images ? (
             <>
+              <button onClick={() => history.push("/")}>
+                <FaArrowLeft />
+              </button>
               <img
                 src={
                   hq.images.length > 0
