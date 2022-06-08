@@ -11,7 +11,7 @@ export const Main = styled.main`
   background-image: url(${imgBackground});
   overflow-y: auto;
 
-  div {
+  > div {
     color: var(--color-hover);
     width: 100%;
     min-height: 300px;
@@ -69,5 +69,6 @@ export const Main = styled.main`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-bottom: 40px;
   }
 `;

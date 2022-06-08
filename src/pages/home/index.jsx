@@ -4,6 +4,7 @@ import Header from "../../components/header";
 import { Main } from "./style";
 import api from "../../services/api";
 import Card from "../../components/card";
+import { ChakraProvider, Spinner } from "@chakra-ui/react";
 
 const Home = () => {
   const [load, setLoad] = useState(true);
@@ -19,7 +20,7 @@ const Home = () => {
       .then((res) => {
         console.log(res.data.data.results);
         setListHq(res.data.data.results);
-        setLoad(false);
+        setLoad(true);
       })
       .catch((err) => console.log(err));
   }, [format, date]);
@@ -49,15 +50,20 @@ const Home = () => {
             <option value="">None</option>
           </select>
         </section>
-        {load ? (
-          <></>
-        ) : (
-          <ul>
-            {listHq.map((hq) => (
-              <Card hq={hq} key={hq.id} />
-            ))}
-          </ul>
-        )}
+
+        <ul>
+          {load ? (
+            <ChakraProvider resetCSS={false}>
+              <Spinner h="300px" w="300px" color="var(--color-main)" />
+            </ChakraProvider>
+          ) : (
+            <>
+              {listHq.map((hq) => (
+                <Card hq={hq} key={hq.id} />
+              ))}
+            </>
+          )}
+        </ul>
       </Main>
     </Container>
   );
