@@ -18,6 +18,7 @@ import {
 import { useContext } from "react";
 import { CartContext } from "../../providers/cart";
 import { FaShoppingCart } from "react-icons/fa";
+import { BsCartXFill } from "react-icons/bs";
 
 const ModalCart = ({ isOpen, onClose }) => {
   const { RemoveToCart, addQtd, subQtd, Cart, sumTotal } =
@@ -115,9 +116,12 @@ const ModalCart = ({ isOpen, onClose }) => {
                 </Flex>
               ))
             ) : (
-              <Center>
-                <Heading> No products in the Cart</Heading>
-              </Center>
+              <Flex flexDir="column" alignItems="center" pb="8">
+                <Heading textAlign="center" size="lg" pb="3">
+                  Your Cart is empty
+                </Heading>
+                <BsCartXFill fontSize="5rem" />
+              </Flex>
             )}
           </DrawerBody>
           {Cart.length > 0 ? (

@@ -21,6 +21,10 @@ export const LogoHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 30px;
+
+  h1 {
+    font-size: 3rem;
+  }
 `;
 
 export const DetailsDemand = styled.section`
@@ -71,6 +75,10 @@ export const DetailsDemand = styled.section`
       flex: 1;
       height: 35px;
       border-radius: 5px;
+
+      &::placeholder {
+        padding-left: 8px;
+      }
     }
 
     button {
