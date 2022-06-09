@@ -6,7 +6,6 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
-  Center,
   Heading,
   Flex,
   Image,
@@ -19,10 +18,13 @@ import { useContext } from "react";
 import { CartContext } from "../../providers/cart";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsCartXFill } from "react-icons/bs";
+import { useHistory } from "react-router-dom";
 
 const ModalCart = ({ isOpen, onClose }) => {
   const { RemoveToCart, addQtd, subQtd, Cart, sumTotal } =
     useContext(CartContext);
+
+  const history = useHistory();
 
   return (
     <ChakraProvider resetCSS={false}>
@@ -143,6 +145,7 @@ const ModalCart = ({ isOpen, onClose }) => {
                   color="var(--color-secundary)"
                   _hover={{ bgColor: "var(--color-red-800)" }}
                   cursor="poinrer"
+                  onClick={() => history.push("/checkout")}
                 >
                   Finished demand
                 </Button>

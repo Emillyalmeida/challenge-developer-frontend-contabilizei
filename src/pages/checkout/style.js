@@ -64,31 +64,38 @@ export const DetailsDemand = styled.section`
     }
   }
 
-  > div {
+  > Form {
     padding: 0 15px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     padding-bottom: 1rem;
 
-    input {
-      flex: 1;
-      height: 35px;
-      border-radius: 5px;
+    > div {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 1rem;
 
-      &::placeholder {
-        padding-left: 8px;
+      input {
+        flex: 1;
+        height: 35px;
+        border-radius: 5px;
+
+        &::placeholder {
+          padding-left: 8px;
+        }
       }
-    }
 
-    button {
-      margin-left: 1rem;
-      width: 70px;
-      height: 35px;
-      border: none;
-      border-radius: 5px;
-      background-color: var(--color-main);
-      color: var(--color-hover);
+      button {
+        margin-left: 1rem;
+        width: 70px;
+        height: 35px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--color-main);
+        color: var(--color-hover);
+      }
     }
   }
 
