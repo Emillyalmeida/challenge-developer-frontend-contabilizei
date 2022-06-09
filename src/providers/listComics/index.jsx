@@ -18,6 +18,7 @@ export const ListComicsProvider = ({ children }) => {
       .then((res) => {
         console.log(res.data.data.results);
         setListHq(res.data.data.results);
+        console.log(listHq);
         listPage();
         setLoad(false);
       })
