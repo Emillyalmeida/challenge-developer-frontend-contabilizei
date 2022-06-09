@@ -51,11 +51,29 @@ export const DetailsDemand = styled.section`
   }
 
   > section {
+    position: relative;
     padding: 0 15px;
     width: 100%;
     display: flex;
     flex-direction: column;
     padding-bottom: 1rem;
+
+    > button {
+      position: absolute;
+      top: -57px;
+      left: 20px;
+      color: var(--color-secundary);
+      background-color: var(--color-main);
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      border: none;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: var(--color-red-800);
+      }
+    }
 
     > div {
       display: flex;
@@ -71,11 +89,15 @@ export const DetailsDemand = styled.section`
     flex-direction: column;
     padding-bottom: 1rem;
 
+    label {
+      margin-left: 10px;
+      padding-bottom: 0.5rem;
+    }
+
     > div {
       width: 100%;
       display: flex;
       justify-content: space-between;
-      padding-bottom: 1rem;
 
       input {
         flex: 1;
@@ -95,8 +117,26 @@ export const DetailsDemand = styled.section`
         border-radius: 5px;
         background-color: var(--color-main);
         color: var(--color-hover);
+
+        &:hover {
+          background-color: var(--color-red-800);
+        }
       }
     }
+    span {
+      padding-top: 4px;
+      margin-left: 8px;
+      font-size: 0.8rem;
+    }
+
+    p {
+      padding-top: 4px;
+      margin-left: 8px;
+    }
+  }
+
+  .red {
+    color: var(--color-red-600);
   }
 
   button {
@@ -106,5 +146,9 @@ export const DetailsDemand = styled.section`
     border-radius: 5px;
     background-color: var(--color-main);
     color: var(--color-hover);
+
+    &:hover {
+      background-color: var(--color-red-800);
+    }
   }
 `;

@@ -1,13 +1,18 @@
 import Container from "../../components/container";
 import { DetailsDemand, LogoHeader, Main } from "./style";
 import { useContext, useState } from "react";
+
 import { CartContext } from "../../providers/cart";
 
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
+
 const Checkout = () => {
+  const history = useHistory();
   const { sumTotal } = useContext(CartContext);
   const [discount, setDiscount] = useState(0);
   const [discountValue, setDiscountValue] = useState("");
@@ -42,17 +47,25 @@ const Checkout = () => {
         <DetailsDemand>
           <h2> Details of the demand</h2>
           <section>
+            <button onClick={() => history.push("/")}>
+              <FaArrowLeft />
+            </button>
             <div>
               <span>SubTotal</span>
-              <span>R$ {sumTotal().toFixed(2).replace(".", ",")}</span>
+              <span>US$ {sumTotal().toFixed(2).replace(".", ",")}</span>
             </div>
             <div>
-              <span>Desconto</span>
-              <span> - {discount.toFixed(2).replace(".", ",")}</span>
+              <span className="red">Desconto</span>
+              <span className="red">
+                {" "}
+                - {discount.toFixed(2).replace(".", ",")}
+              </span>
             </div>
             <div>
               <h3>Total</h3>
-              <h3>R$ {(sumTotal() - discount).toFixed(2).replace(".", ",")}</h3>
+              <h3>
+                US$ {(sumTotal() - discount).toFixed(2).replace(".", ",")}
+              </h3>
             </div>
           </section>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -65,9 +78,11 @@ const Checkout = () => {
               />
               <button type="submit">aplicar</button>
             </div>
-            {!!errors.Discount && <span>{errors.Discount?.message}</span>}
+            {!!errors.Discount && (
+              <span className="red">{errors.Discount?.message}</span>
+            )}
             {!!discountValue && (
-              <p>The discount {discountValue} was add with success</p>
+              <p>The discount "{discountValue}" was add with success</p>
             )}
           </form>
           <button>Confirm</button>
