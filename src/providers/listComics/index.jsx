@@ -35,7 +35,7 @@ export const ListComicsProvider = ({ children }) => {
       .then((res) => {
         setLoad(true);
         console.log(res.data.data.results);
-        setListHq(res.data.data.results);
+        ramdomNumbers(res.data.data.results);
       })
       .catch((err) => console.log(err));
   }, [format, date]);
@@ -64,6 +64,24 @@ export const ListComicsProvider = ({ children }) => {
 
   const beforePage = () => {
     setPage(page - 1);
+  };
+
+  const ramdomNumbers = (arr) => {
+    const rares = Math.ceil(arr.length * 0.1);
+    let num = [];
+    for (let i = rares; i > 0; i--) {
+      num.push(Math.floor(Math.random() * arr.length));
+    }
+    setRares(arr, num);
+  };
+
+  const setRares = (comics, num) => {
+    console.log(num);
+    num.forEach((num) => {
+      comics[num].rare = true;
+    });
+
+    setListHq(comics);
   };
 
   return (
