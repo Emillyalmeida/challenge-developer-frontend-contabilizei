@@ -8,15 +8,15 @@ export const Main = styled.main`
   align-items: center;
   width: 100vw;
   height: 100%;
+  padding-top: 30px;
   background-image: url(${imgBackground});
   background-position: right;
-  overflow-y: auto;
+  overflow-y: scroll;
 
   > div {
     color: var(--color-hover);
     width: 100%;
     min-height: 300px;
-    margin-top: 20px;
     background-image: url(${imgBanner});
     background-position: center;
     background-size: cover;

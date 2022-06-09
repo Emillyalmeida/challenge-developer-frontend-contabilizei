@@ -9,6 +9,7 @@ export default createGlobalStyle`
     outline: 0;
     border: 0;
     list-style: none;
+    height: auto;
 }
 :root{
     --color-main:#d00000;
@@ -20,8 +21,10 @@ export default createGlobalStyle`
 }
 
 html{
-    overflow: unset;
+    overflow: hidden;
 }
+
+
 body, input, button, textarea{
     font-family: 'Bangers', cursive;
     font-size: 1rem;
