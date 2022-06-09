@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useCallback } from "react";
 import { useContext } from "react";
 import { createContext, useState } from "react";
 import api from "../../services/api";
@@ -26,31 +27,36 @@ export const ListComicsProvider = ({ children }) => {
   const [format, setFormat] = useState("format=comic&");
   const [date, setdate] = useState("dateDescriptor=thisWeek&");
 
-  useEffect(() => {
-    loadHqs();
-  }, [format, date, page]);
-
-  const loadHqs = () => {
+  const loadHqs = useCallback(() => {
     api
       .get(
-        `comics?limit=20&${format}${date}ts=1654268755111&apikey=33ea14e515c183249d66e3db37ce98d0&hash=cac43d374c991f94de1dc400cfd5f7f4`
+        `comics?limit=50&${format}${date}ts=1654268755111&apikey=33ea14e515c183249d66e3db37ce98d0&hash=cac43d374c991f94de1dc400cfd5f7f4`
       )
       .then((res) => {
         setLoad(true);
         console.log(res.data.data.results);
         setListHq(res.data.data.results);
-        console.log(listHq);
-        setMaxPage(Math.ceil(listHq.length / 10));
-        console.log(maxPage);
-        const mult = (page - 1) * 10;
-        const list = listHq.slice(mult, mult + 10);
-        setListPerPage(list);
-        setLoad(false);
       })
       .catch((err) => console.log(err));
+  }, [format, date]);
+
+  const listPage = () => {
+    console.log(listHq);
+    setMaxPage(Math.ceil(listHq.length / 10));
+    console.log(maxPage);
+    const mult = (page - 1) * 10;
+    const list = listHq.slice(mult, mult + 10);
+    setListPerPage(list);
+    setLoad(false);
   };
 
-  const listPage = () => {};
+  useEffect(() => {
+    loadHqs();
+  }, [format, date]);
+
+  useEffect(() => {
+    listPage();
+  }, [listHq, page]);
 
   const nextPage = () => {
     setPage(page + 1);

@@ -102,13 +102,17 @@ export const Pagination = styled.div`
   padding: 20px;
 
   button {
-    width: 70px;
+    width: 80px;
     height: 45px;
     border: none;
     border-radius: 5px;
     background-color: var(--color-main);
     color: var(--color-secundary);
     font-weight: 700;
+
+    &:hover {
+      background-color: var(--color-red-800);
+    }
   }
 
   span {
@@ -119,5 +123,6 @@ export const Pagination = styled.div`
     border-radius: 50%;
     text-align: center;
     background-color: var(--color-secundary);
+    margin: 0 1rem;
   }
 `;

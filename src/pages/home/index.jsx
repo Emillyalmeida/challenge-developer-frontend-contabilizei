@@ -1,5 +1,3 @@
-import { useEffect, useContext } from "react";
-
 import Container from "../../components/container";
 import Header from "../../components/header";
 import Card from "../../components/card";
@@ -13,7 +11,6 @@ import { MdError } from "react-icons/md";
 const Home = () => {
   const {
     maxPage,
-    loadHqs,
     setFormat,
     setdate,
     load,
