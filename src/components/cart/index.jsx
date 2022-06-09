@@ -55,7 +55,12 @@ const ModalCart = ({ isOpen, onClose }) => {
           <DrawerBody mt="4">
             {Cart.length > 0 ? (
               Cart.map((item) => (
-                <Flex w="100%" p="2" justifyContent="space-between">
+                <Flex
+                  w="100%"
+                  p="2"
+                  justifyContent="space-between"
+                  key={item.id}
+                >
                   <Image
                     boxSize="100px"
                     objectFit="contain"
