@@ -4,18 +4,13 @@ import Container from "../../components/container";
 import Header from "../../components/header";
 import Card from "../../components/card";
 
-import { ListComicsContext } from "../../providers/listComics";
+import useComics from "../../providers/listComics";
 import { Main } from "./style";
 import { ChakraProvider, Spinner } from "@chakra-ui/react";
 import { MdError } from "react-icons/md";
 
 const Home = () => {
-  const { listHq, loadHqs, setFormat, setdate, load, format, date } =
-    useContext(ListComicsContext);
-
-  useEffect(() => {
-    loadHqs();
-  }, [format, date]);
+  const { listHq, loadHqs, setFormat, setdate, load } = useComics();
 
   return (
     <Container>
