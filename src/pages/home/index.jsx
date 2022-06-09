@@ -4,8 +4,9 @@ import Container from "../../components/container";
 import Header from "../../components/header";
 import Card from "../../components/card";
 
-import { ListComicsContext } from "../../providers/listComics";
 import { Main, Pagination, BannerMain } from "./style";
+import useComics from "../../providers/listComics";
+
 import { ChakraProvider, Spinner } from "@chakra-ui/react";
 import { MdError } from "react-icons/md";
 
@@ -16,17 +17,11 @@ const Home = () => {
     setFormat,
     setdate,
     load,
-    format,
-    date,
     beforePage,
     nextPage,
     page,
     listPerPage,
-  } = useContext(ListComicsContext);
-
-  useEffect(() => {
-    loadHqs();
-  }, [format, date, page]);
+  } = useComics();
 
   return (
     <Container>
