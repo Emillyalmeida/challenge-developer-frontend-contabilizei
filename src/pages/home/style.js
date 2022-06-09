@@ -102,7 +102,7 @@ export const Pagination = styled.div`
   padding: 20px;
 
   button {
-    width: 60px;
+    width: 70px;
     height: 45px;
     border: none;
     border-radius: 5px;
@@ -112,8 +112,10 @@ export const Pagination = styled.div`
   }
 
   span {
-    width: 60px;
-    height: 45px;
+    width: 50px;
+    height: 50x;
+    font-weight: 700;
+    font-size: 2rem;
     border-radius: 50%;
     text-align: center;
     background-color: var(--color-secundary);

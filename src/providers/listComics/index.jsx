@@ -26,17 +26,15 @@ export const ListComicsProvider = ({ children }) => {
         console.log(listHq);
         setMaxPage(Math.ceil(listHq.length / 10));
         console.log(maxPage);
-        listPage();
+        const mult = (page - 1) * 10;
+        const list = listHq.slice(mult, mult + 10);
+        setListPerPage(list);
+        setLoad(false);
       })
       .catch((err) => console.log(err));
   };
 
-  const listPage = () => {
-    const mult = (page - 1) * 10;
-    const list = listHq.slice(mult, mult + 10);
-    setListPerPage(list);
-    setLoad(false);
-  };
+  const listPage = () => {};
 
   const nextPage = () => {
     setPage(page + 1);
