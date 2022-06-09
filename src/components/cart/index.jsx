@@ -20,7 +20,8 @@ import { CartContext } from "../../providers/cart";
 import { FaShoppingCart } from "react-icons/fa";
 
 const ModalCart = ({ isOpen, onClose }) => {
-  const { RemoveToCart, addQtd, subQtd, Cart } = useContext(CartContext);
+  const { RemoveToCart, addQtd, subQtd, Cart, sumTotal } =
+    useContext(CartContext);
 
   return (
     <ChakraProvider resetCSS={false}>
@@ -129,15 +130,7 @@ const ModalCart = ({ isOpen, onClose }) => {
                   pt="2"
                 >
                   <Text>Total of the demand</Text>{" "}
-                  <Text>
-                    R${" "}
-                    {Cart.reduce(
-                      (sum, curr) => curr.prices[0].price * curr.qtd + sum,
-                      0
-                    )
-                      .toFixed(2)
-                      .replace(".", ",")}
-                  </Text>
+                  <Text>R$ {sumTotal().toFixed(2).replace(".", ",")}</Text>
                 </Flex>
 
                 <Button
