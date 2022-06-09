@@ -14,24 +14,6 @@ export const Main = styled.main`
   overflow-y: scroll;
 
   > div {
-    color: var(--color-hover);
-    width: 100%;
-    min-height: 300px;
-    background-image: url(${imgBanner});
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    @media (min-width: 768px) {
-      width: 80%;
-    }
-    h2 {
-      font-size: 3rem;
-      text-align: center;
-      text-shadow: 4px 4px 5px var(--color-secundary);
-    }
   }
 
   section {
@@ -86,5 +68,54 @@ export const Main = styled.main`
         font-size: 10rem;
       }
     }
+  }
+`;
+
+export const BannerMain = styled.div`
+  color: var(--color-hover);
+  width: 100%;
+  min-height: 300px;
+  background-image: url(${imgBanner});
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  @media (min-width: 768px) {
+    width: 80%;
+  }
+  h2 {
+    font-size: 3rem;
+    text-align: center;
+    text-shadow: 4px 4px 5px var(--color-secundary);
+  }
+`;
+
+export const Pagination = styled.div`
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  background-image: none;
+  margin-bottom: 50px;
+  width: 300px;
+  padding: 20px;
+
+  button {
+    width: 60px;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-main);
+    color: var(--color-secundary);
+    font-weight: 700;
+  }
+
+  span {
+    width: 60px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: var(--color-secundary);
   }
 `;

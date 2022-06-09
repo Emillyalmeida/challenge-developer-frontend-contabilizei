@@ -5,25 +5,36 @@ import Header from "../../components/header";
 import Card from "../../components/card";
 
 import { ListComicsContext } from "../../providers/listComics";
-import { Main } from "./style";
+import { Main, Pagination, BannerMain } from "./style";
 import { ChakraProvider, Spinner } from "@chakra-ui/react";
 import { MdError } from "react-icons/md";
 
 const Home = () => {
-  const { listHq, loadHqs, setFormat, setdate, load, format, date } =
-    useContext(ListComicsContext);
+  const {
+    maxPage,
+    loadHqs,
+    setFormat,
+    setdate,
+    load,
+    format,
+    date,
+    beforePage,
+    nextPage,
+    page,
+    listPerPage,
+  } = useContext(ListComicsContext);
 
   useEffect(() => {
     loadHqs();
-  }, [format, date]);
+  }, [format, date, page]);
 
   return (
     <Container>
       <Header />
       <Main>
-        <div>
+        <BannerMain>
           <h2>Buy yours comics here!!</h2>
-        </div>
+        </BannerMain>
         <section>
           <h3>Filters</h3>
           <div>
@@ -55,9 +66,9 @@ const Home = () => {
             <ChakraProvider resetCSS={false}>
               <Spinner h="300px" w="300px" color="var(--color-main)" />
             </ChakraProvider>
-          ) : listHq.length > 0 ? (
+          ) : listPerPage.length > 0 ? (
             <>
-              {listHq.map((hq) => (
+              {listPerPage.map((hq) => (
                 <Card hq={hq} key={hq.id} />
               ))}
             </>
@@ -70,6 +81,16 @@ const Home = () => {
             </>
           )}
         </ul>
+        <Pagination>
+          {page !== 1 && (
+            <button onClick={() => beforePage()}>Before page</button>
+          )}
+
+          <span>{page}</span>
+          {page !== maxPage && (
+            <button onClick={() => nextPage()}>Next page</button>
+          )}
+        </Pagination>
       </Main>
     </Container>
   );
