@@ -1,11 +1,8 @@
 import { useState } from "react";
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 import Container from "../../components/container";
 import Header from "../../components/header";
-import api from "../../services/api";
 
 import { MainDetail } from "./style";
 import { FaShoppingCart } from "react-icons/fa";
@@ -16,31 +13,14 @@ import { CartContext } from "../../providers/cart";
 
 import noImage from "../../assets/noImage.jpg";
 import { ChakraProvider, Spinner } from "@chakra-ui/react";
+import useComics from "../../providers/listComics";
 
 const HqDetails = () => {
   const history = useHistory();
-  const Params = useParams();
-  const [load, setLoad] = useState(true);
-  const [hq, setHq] = useState({});
+  const [load, setLoad] = useState(false);
 
-  useEffect(() => {
-    getHqById(Params.id);
-  }, []);
+  const { selectHq } = useComics();
 
-  const getHqById = (id) => {
-    api
-      .get(
-        `comics/${id}?ts=1654268755111&apikey=33ea14e515c183249d66e3db37ce98d0&hash=cac43d374c991f94de1dc400cfd5f7f4`
-      )
-      .then((res) => {
-        console.log(res.data.data.results[0]);
-        setHq(res.data.data.results[0]);
-        setLoad(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
   const { addToCart } = useContext(CartContext);
 
   return (
@@ -55,17 +35,17 @@ const HqDetails = () => {
               </button>
               <img
                 src={
-                  hq.images.length > 0
-                    ? `${hq.images[0].path}.${hq.images[0].extension}`
+                  selectHq.images.length > 0
+                    ? `${selectHq.images[0].path}.${selectHq.images[0].extension}`
                     : noImage
                 }
-                alt={hq.title}
+                alt={selectHq.title}
               />
 
               <div>
-                <h2>{hq.title}</h2>
+                <h2>{selectHq.title}</h2>
                 <ul>
-                  {hq.creators.items.map((creator) => {
+                  {selectHq.creators.items.map((creator) => {
                     return (
                       <li key={creator.name}>
                         <h4>{creator.role} :</h4>
@@ -74,12 +54,14 @@ const HqDetails = () => {
                     );
                   })}
                 </ul>
-                <p>{hq.description}</p>
+                <p>{selectHq.description}</p>
                 <span>
                   Price: US${" "}
-                  {hq.prices[0].price === 0 ? 4.99 : hq.prices[0].price}
+                  {selectHq.prices[0].price === 0
+                    ? 4.99
+                    : selectHq.prices[0].price}
                 </span>
-                <button onClick={() => addToCart(hq)}>
+                <button onClick={() => addToCart(selectHq)}>
                   <FaShoppingCart /> add to cart
                 </button>
               </div>
