@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# Bem vindo(a) a **Marvel's House**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esse projeto teve como ideia principal o desafio de Front-end da contabilizei. Onde foi criado uma loja de quadrinhos utilizando a API da Marvel.
 
-## Available Scripts
+## Desafio
 
-In the project directory, you can run:
+Consiste de uma tela de lista de quadrinhos, consumindo a [Api da Marvel](https://developer.marvel.com). Tem um sistema de paginação onde pode navegar para ver mais quadrinhos ou voltar para as paginas anteriores. Além disso, 10% dos quadinho são marcados com o selo de raro aleatoriamente.
 
-### `yarn start`
+Nessa aplicação é possível ver os quadinhos disponíveis e adciona-los ao carrinho e filtrar por formato e data de publicação, além de que quando clicado na imagem do card é direcionado a uma pagina com mais detalhes do quadrinho.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+No carrinho lita-se todos os quadrinhos adicionados e são salvos no LocalStorage, para que mesmo que recarregue á pagina não apage os itens no carrinho.Também é possível remover do carrinho o item e aumentar ou diminuir a quantidade de cada item, á um botão para finalizar a compra que leva ao checkout.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Na pagina do checkout tem o total do pedido e o um campo para aplicar um cupom de desconto, que quando é preenchido a um desconto de 10% a 20% no total da compra.
 
-### `yarn test`
+### Bibliotecas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Styled Components
+- Chakra
+- Yup
+- Axios
+- React Hook Form
+- React Router Dom
+- React ICons
 
-### `yarn build`
+### Tecnologia
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- ReactJS
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Links
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### [Marvel's House](https://adopet-m3.vercel.app/)
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### [Repositorio do desafio contabilizei](https://github.com/contabilizei/front-end-teste)
