@@ -6,12 +6,17 @@ import { CartContext } from "../../providers/cart";
 import noImage from "../../assets/noImage.jpg";
 
 const Card = ({ hq }) => {
-  const { title, images, prices, id } = hq;
+  const { title, images, prices, id, rare } = hq;
   const history = useHistory();
   const { addToCart } = useContext(CartContext);
 
   return (
     <CardLi>
+      {rare && (
+        <div>
+          <span>Rare</span>
+        </div>
+      )}
       <img
         onClick={() => history.push(`/hq/${id}`)}
         src={
