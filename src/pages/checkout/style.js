@@ -48,6 +48,7 @@ export const DetailsDemand = styled.section`
   h2 {
     color: var(--color-main);
     padding-bottom: 2rem;
+    font-size: 2rem;
   }
 
   > section {
@@ -60,7 +61,7 @@ export const DetailsDemand = styled.section`
 
     > button {
       position: absolute;
-      top: -57px;
+      top: -65px;
       left: 20px;
       color: var(--color-secundary);
       background-color: var(--color-main);
@@ -69,6 +70,10 @@ export const DetailsDemand = styled.section`
       height: 25px;
       border: none;
       border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
       &:hover {
         background-color: var(--color-red-800);
@@ -79,6 +84,10 @@ export const DetailsDemand = styled.section`
       display: flex;
       justify-content: space-between;
       padding-bottom: 3px;
+
+      h3 {
+        font-size: 1.25rem;
+      }
     }
   }
 
@@ -92,6 +101,7 @@ export const DetailsDemand = styled.section`
     label {
       margin-left: 10px;
       padding-bottom: 0.5rem;
+      font-weight: 700;
     }
 
     > div {

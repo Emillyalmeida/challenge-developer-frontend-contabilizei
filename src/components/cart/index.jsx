@@ -19,6 +19,7 @@ import { CartContext } from "../../providers/cart";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsCartXFill } from "react-icons/bs";
 import { useHistory } from "react-router-dom";
+import noImage from "../../assets/noImage.jpg";
 
 const ModalCart = ({ isOpen, onClose }) => {
   const { RemoveToCart, addQtd, subQtd, Cart, sumTotal } =
@@ -41,7 +42,8 @@ const ModalCart = ({ isOpen, onClose }) => {
         >
           <DrawerCloseButton
             bgcolor="var(--color-red-800)"
-            color="var(--color-secundary)"
+            color="var(--color-red-800)"
+            _hover={{ bgColor: "var(--color-red-800)" }}
           />
           <DrawerHeader
             borderBottomWidth="1px"
@@ -64,7 +66,11 @@ const ModalCart = ({ isOpen, onClose }) => {
                   <Image
                     boxSize="100px"
                     objectFit="contain"
-                    src={`${item.images[0].path}.${item.images[0].extension}`}
+                    src={
+                      item.images.length > 0
+                        ? `${item.images[0].path}.${item.images[0].extension}`
+                        : noImage
+                    }
                     alt={item.title}
                   />
                   <VStack>

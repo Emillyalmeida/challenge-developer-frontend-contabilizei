@@ -11,11 +11,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { FaArrowLeft } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 
+import { useToast, ChakraProvider } from "@chakra-ui/react";
+
 const Checkout = () => {
   const history = useHistory();
   const { sumTotal } = useContext(CartContext);
   const [discount, setDiscount] = useState(0);
   const [discountValue, setDiscountValue] = useState("");
+
+  const toast = useToast();
 
   const schema = yup.object().shape({
     Discount: yup
@@ -45,7 +49,7 @@ const Checkout = () => {
       </LogoHeader>
       <Main>
         <DetailsDemand>
-          <h2> Details of the demand</h2>
+          <h2> Details of the Order</h2>
           <section>
             <button onClick={() => history.push("/")}>
               <FaArrowLeft />
@@ -85,7 +89,21 @@ const Checkout = () => {
               <p>The discount "{discountValue}" was add with success</p>
             )}
           </form>
-          <button>Confirm</button>
+          <ChakraProvider>
+            <button
+              onClick={() =>
+                toast({
+                  title: "Completed Order",
+                  description: "Your order was concluded with success",
+                  status: "success",
+                  duration: 9000,
+                  isClosable: true,
+                })
+              }
+            >
+              Confirm
+            </button>
+          </ChakraProvider>
         </DetailsDemand>
       </Main>
     </Container>
