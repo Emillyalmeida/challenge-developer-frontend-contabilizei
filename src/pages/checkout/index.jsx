@@ -45,7 +45,7 @@ const Checkout = () => {
   return (
     <Container>
       <LogoHeader>
-        <h1> House of Marvel</h1>
+        <h1> Marvel's House</h1>
       </LogoHeader>
       <Main>
         <DetailsDemand>

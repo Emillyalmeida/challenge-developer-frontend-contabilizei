@@ -14,7 +14,7 @@ const Header = () => {
     <>
       <ModalCart isOpen={isOpen} onClose={onClose} />
       <HeaderContainer>
-        <h1> House of Marvel</h1>
+        <h1> Marvel's House</h1>
         <nav>
           <Link to="/">
             <div>
