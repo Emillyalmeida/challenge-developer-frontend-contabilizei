@@ -32,7 +32,7 @@ export const ListComicsProvider = ({ children }) => {
   const loadHqs = useCallback(() => {
     api
       .get(
-        `comics?limit=50&${format}${date}ts=1654268755111&apikey=33ea14e515c183249d66e3db37ce98d0&hash=cac43d374c991f94de1dc400cfd5f7f4`
+        `comics?limit=50&${format}${date}ts=1654868189291&apikey=33ea14e515c183249d66e3db37ce98d0&hash=1cd4a3dcb68d8e5dc9e5f006fbd7417b`
       )
       .then((res) => {
         setLoad(true);
