@@ -25,8 +25,10 @@ export const MainDetail = styled.main`
     @media (min-width: 768px) {
       flex-direction: row;
       width: 80%;
+      max-width: 1200px;
       padding: 20px;
     }
+
     > button {
       position: absolute;
       top: 15px;
@@ -55,9 +57,34 @@ export const MainDetail = styled.main`
 
     div {
       display: flex;
+      position: relative;
       flex-direction: column;
       padding: 10px;
       max-width: 480px;
+
+      > section {
+        position: absolute;
+        top: 10%;
+        left: 82%;
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color-red-800);
+        color: var(--color-hover);
+        box-shadow: 0 7px 8px 0 rgba(0, 0, 0, 0.6),
+          0 8px 24px 0 rgba(0, 0, 0, 0.4);
+        > span {
+          font-size: 1.2rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          color: var(--color-hover);
+          padding: 0;
+        }
+      }
 
       h2 {
         color: var(--color-red-600);

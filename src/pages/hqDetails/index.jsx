@@ -28,6 +28,7 @@ const HqDetails = () => {
           <button onClick={() => history.push("/")}>
             <FaArrowLeft />
           </button>
+
           <img
             src={
               selectHq.images.length > 0
@@ -38,6 +39,11 @@ const HqDetails = () => {
           />
 
           <div>
+            {selectHq.rare && (
+              <section>
+                <span>Rare</span>
+              </section>
+            )}
             <h2>{selectHq.title}</h2>
             <ul>
               {selectHq.creators.items.map((creator) => {
