@@ -27,6 +27,8 @@ export const ListComicsProvider = ({ children }) => {
   const [format, setFormat] = useState("format=comic&");
   const [date, setdate] = useState("dateDescriptor=thisWeek&");
 
+  const [selectHq, setSelectHq] = useState({});
+
   const loadHqs = useCallback(() => {
     api
       .get(
@@ -98,6 +100,8 @@ export const ListComicsProvider = ({ children }) => {
         page,
         listPerPage,
         maxPage,
+        selectHq,
+        setSelectHq,
       }}
     >
       {children}

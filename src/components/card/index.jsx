@@ -3,12 +3,20 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 import { CardLi } from "./style";
 import { CartContext } from "../../providers/cart";
+import useComics from "../../providers/listComics";
 import noImage from "../../assets/noImage.jpg";
 
 const Card = ({ hq }) => {
   const { title, images, prices, id, rare } = hq;
   const history = useHistory();
   const { addToCart } = useContext(CartContext);
+
+  const { setSelectHq } = useComics();
+
+  const setHq = () => {
+    setSelectHq(hq);
+    history.push(`/hq/${id}`);
+  };
 
   return (
     <CardLi>
@@ -18,7 +26,7 @@ const Card = ({ hq }) => {
         </div>
       )}
       <img
-        onClick={() => history.push(`/hq/${id}`)}
+        onClick={() => setHq()}
         src={
           images.length > 0
             ? `${images[0].path}.${images[0].extension}`
