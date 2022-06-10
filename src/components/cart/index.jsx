@@ -41,9 +41,9 @@ const ModalCart = ({ isOpen, onClose }) => {
           boxShadow="base"
         >
           <DrawerCloseButton
-            bgcolor="var(--color-red-800)"
+            bgcolor="var(--color-main)"
             color="var(--color-red-800)"
-            _hover={{ bgColor: "var(--color-red-800)" }}
+            _hover={{ bgColor: "var(--color-main)" }}
           />
           <DrawerHeader
             borderBottomWidth="1px"
@@ -146,8 +146,10 @@ const ModalCart = ({ isOpen, onClose }) => {
                   paddingX="4"
                   pt="2"
                 >
-                  <Text>Total of the demand</Text>{" "}
-                  <Text>R$ {sumTotal().toFixed(2).replace(".", ",")}</Text>
+                  <Text fontSize="xl">Total of the demand</Text>{" "}
+                  <Text fontSize="xl" fontWeight="bold">
+                    R$ {sumTotal().toFixed(2).replace(".", ",")}
+                  </Text>
                 </Flex>
 
                 <Button
@@ -156,6 +158,7 @@ const ModalCart = ({ isOpen, onClose }) => {
                   color="var(--color-secundary)"
                   _hover={{ bgColor: "var(--color-red-800)" }}
                   cursor="poinrer"
+                  fontSize="xl"
                   onClick={() => history.push("/checkout")}
                 >
                   Finished demand

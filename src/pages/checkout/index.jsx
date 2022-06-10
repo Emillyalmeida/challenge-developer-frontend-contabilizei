@@ -59,7 +59,7 @@ const Checkout = () => {
               <span>US$ {sumTotal().toFixed(2).replace(".", ",")}</span>
             </div>
             <div>
-              <span className="red">Discoun</span>
+              <span className="red">Discount</span>
               <span className="red">
                 {" "}
                 - {discount.toFixed(2).replace(".", ",")}
