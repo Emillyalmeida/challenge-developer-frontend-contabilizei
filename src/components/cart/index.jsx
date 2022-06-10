@@ -14,16 +14,18 @@ import {
   Text,
   Box,
 } from "@chakra-ui/react";
-import { useContext } from "react";
-import { CartContext } from "../../providers/cart";
+
+import useCart from "../../providers/cart";
+
 import { FaShoppingCart } from "react-icons/fa";
 import { BsCartXFill } from "react-icons/bs";
+
 import { useHistory } from "react-router-dom";
+
 import noImage from "../../assets/noImage.jpg";
 
 const ModalCart = ({ isOpen, onClose }) => {
-  const { RemoveToCart, addQtd, subQtd, Cart, sumTotal } =
-    useContext(CartContext);
+  const { RemoveToCart, addQtd, subQtd, Cart, sumTotal } = useCart();
 
   const history = useHistory();
 

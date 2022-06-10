@@ -1,15 +1,14 @@
-import { useContext } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 import { CardLi } from "./style";
-import { CartContext } from "../../providers/cart";
+import useCart from "../../providers/cart";
 import useComics from "../../providers/listComics";
 import noImage from "../../assets/noImage.jpg";
 
 const Card = ({ hq }) => {
   const { title, images, prices, id, rare } = hq;
   const history = useHistory();
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useCart();
 
   const { setSelectHq } = useComics();
 

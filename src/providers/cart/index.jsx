@@ -1,4 +1,15 @@
+import { useContext } from "react";
 import { createContext, useState } from "react";
+
+const useCart = () => {
+  const context = useContext(CartContext);
+
+  if (!context) {
+    throw new Error("useTasks must to be used within AuthContext");
+  }
+
+  return context;
+};
 
 export const CartContext = createContext([]);
 
@@ -58,3 +69,5 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
+export default useCart;

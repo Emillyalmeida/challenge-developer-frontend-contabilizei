@@ -1,8 +1,8 @@
 import Container from "../../components/container";
 import { DetailsDemand, LogoHeader, Main } from "./style";
-import { useContext, useState } from "react";
+import { useState } from "react";
 
-import { CartContext } from "../../providers/cart";
+import useCart from "../../providers/cart";
 
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -15,7 +15,7 @@ import { useToast, ChakraProvider } from "@chakra-ui/react";
 
 const Checkout = () => {
   const history = useHistory();
-  const { sumTotal } = useContext(CartContext);
+  const { sumTotal } = useCart();
   const [discount, setDiscount] = useState(0);
   const [discountValue, setDiscountValue] = useState("");
 
