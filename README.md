@@ -28,6 +28,6 @@ Na pagina do checkout tem o total do pedido e o um campo para aplicar um cupom d
 
 ### Links
 
-### [Marvel's House](https://marvels-house-emillyalmeida.vercel.app)
+### [Marvel's House](https://marvels-house.vercel.app/)
 
 ### [Repositorio do desafio contabilizei](https://github.com/contabilizei/front-end-teste)
